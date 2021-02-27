@@ -1,0 +1,12 @@
+[package]
+name = "plugin"
+version = "0.0.0"
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+botball = { git = "https://github.com/tyngsboroughrobotics/botball-rust" }
+wipple = { git = "https://github.com/wipplelang/wipple" }
+wipple_plugin_loader = { git = "https://github.com/wipplelang/plugin-loader" }
