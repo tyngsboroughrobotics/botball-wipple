@@ -1,4 +1,5 @@
 use bigdecimal::{BigDecimal, FromPrimitive, ToPrimitive};
+use std::os::raw::*;
 use wipple::*;
 use wipple_plugins::wipple_plugin;
 
@@ -120,91 +121,82 @@ number_conversion!(f64, "64-bit floating point number");
 
 fn add_bindings(env: &EnvironmentRef) {
     bind!(env, {
-        fn accel_x() -> i16;
-        fn accel_y() -> i16;
-        fn accel_z() -> i16;
-        fn accel_calibrate() -> i32;
-        fn analog(port: i32) -> i32;
-        fn analog8(port: i32) -> i32;
-        fn analog10(port: i32) -> i32;
-        fn analog12(port: i32) -> i32;
-        fn analog_et(port: i32) -> i32;
-        fn set_analog_pullup(port: i32, pullup: i32);
-        fn get_analog_pullup(port: i32) -> i32;
+        fn accel_x() -> c_short;
+        fn accel_y() -> c_short;
+        fn accel_z() -> c_short;
+        fn accel_calibrate() -> c_int;
+        fn analog(port: c_int) -> c_int;
+        fn analog8(port: c_int) -> c_int;
+        fn analog10(port: c_int) -> c_int;
+        fn analog12(port: c_int) -> c_int;
+        fn analog_et(port: c_int) -> c_int;
+        fn set_analog_pullup(port: c_int, pullup: c_int);
+        fn get_analog_pullup(port: c_int) -> c_int;
         fn beep();
-        fn battery_charging() -> i32;
+        fn battery_charging() -> c_int;
         fn power_level() -> f32;
         fn power_level_nimh() -> f32;
         fn power_level_lipo() -> f32;
         fn power_level_life() -> f32;
         fn shut_down_in(s: f64);
-        fn wait_for_light(light_port_: i32);
-        fn a_button() -> i32;
-        fn b_button() -> i32;
-        fn c_button() -> i32;
-        fn x_button() -> i32;
-        fn y_button() -> i32;
-        fn z_button() -> i32;
-        fn side_button() -> i32;
-        fn black_button() -> i32;
-        fn push_button() -> i32;
-        fn left_button() -> i32;
-        fn right_button() -> i32;
-        fn a_button_clicked() -> i32;
-        fn b_button_clicked() -> i32;
-        fn c_button_clicked() -> i32;
-        fn x_button_clicked() -> i32;
-        fn y_button_clicked() -> i32;
-        fn z_button_clicked() -> i32;
-        fn side_button_clicked() -> i32;
-        fn any_button() -> i32;
+        fn wait_for_light(light_port_: c_int);
+        fn a_button() -> c_int;
+        fn b_button() -> c_int;
+        fn c_button() -> c_int;
+        fn x_button() -> c_int;
+        fn y_button() -> c_int;
+        fn z_button() -> c_int;
+        fn side_button() -> c_int;
+        fn black_button() -> c_int;
+        fn push_button() -> c_int;
+        fn left_button() -> c_int;
+        fn right_button() -> c_int;
+        fn a_button_clicked() -> c_int;
+        fn b_button_clicked() -> c_int;
+        fn c_button_clicked() -> c_int;
+        fn x_button_clicked() -> c_int;
+        fn y_button_clicked() -> c_int;
+        fn z_button_clicked() -> c_int;
+        fn side_button_clicked() -> c_int;
+        fn any_button() -> c_int;
         fn extra_buttons_show();
         fn extra_buttons_hide();
-        fn get_extra_buttons_visible() -> i32;
-        fn set_extra_buttons_visible(visible: i32);
-        fn camera_open() -> i32;
-        fn camera_open_black() -> i32;
-        fn set_camera_width(width: i32);
-        fn set_camera_height(height: i32);
-        fn get_camera_width() -> i32;
-        fn get_camera_height() -> i32;
-        fn camera_update() -> i32;
-        fn get_channel_count() -> i32;
-        fn get_object_count(channel: i32) -> i32;
-        fn get_code_num(channel: i32, object: i32) -> i32;
-        fn get_object_data_length(channel: i32, object: i32) -> i32;
-        fn get_object_confidence(channel: i32, object: i32) -> f64;
-        fn get_object_area(channel: i32, object: i32) -> i32;
-        fn get_object_bbox_ulx(channel: i32, object: i32) -> i32;
-        fn get_object_bbox_uly(channel: i32, object: i32) -> i32;
-        fn get_object_bbox_brx(channel: i32, object: i32) -> i32;
-        fn get_object_bbox_bry(channel: i32, object: i32) -> i32;
-        fn get_object_bbox_width(channel: i32, object: i32) -> i32;
-        fn get_object_bbox_height(channel: i32, object: i32) -> i32;
-        fn get_object_centroid_column(channel: i32, object: i32) -> i32;
-        fn get_object_centroid_x(channel: i32, object: i32) -> i32;
-        fn get_object_centroid_row(channel: i32, object: i32) -> i32;
-        fn get_object_centroid_y(channel: i32, object: i32) -> i32;
-        fn get_object_center_column(channel: i32, object: i32) -> i32;
-        fn get_object_center_x(channel: i32, object: i32) -> i32;
-        fn get_object_center_row(channel: i32, object: i32) -> i32;
-        fn get_object_center_y(channel: i32, object: i32) -> i32;
+        fn get_extra_buttons_visible() -> c_int;
+        fn set_extra_buttons_visible(visible: c_int);
+        fn camera_open() -> c_int;
+        fn camera_open_black() -> c_int;
+        fn set_camera_width(width: c_int);
+        fn set_camera_height(height: c_int);
+        fn get_camera_width() -> c_int;
+        fn get_camera_height() -> c_int;
+        fn camera_update() -> c_int;
+        fn get_channel_count() -> c_int;
+        fn get_object_count(channel: c_int) -> c_int;
+        fn get_code_num(channel: c_int, object: c_int) -> c_int;
+        fn get_object_data_length(channel: c_int, object: c_int) -> c_int;
+        fn get_object_confidence(channel: c_int, object: c_int) -> f64;
+        fn get_object_area(channel: c_int, object: c_int) -> c_int;
+        fn get_object_bbox_ulx(channel: c_int, object: c_int) -> c_int;
+        fn get_object_bbox_uly(channel: c_int, object: c_int) -> c_int;
+        fn get_object_bbox_brx(channel: c_int, object: c_int) -> c_int;
+        fn get_object_bbox_bry(channel: c_int, object: c_int) -> c_int;
+        fn get_object_bbox_width(channel: c_int, object: c_int) -> c_int;
+        fn get_object_bbox_height(channel: c_int, object: c_int) -> c_int;
+        fn get_object_centroid_column(channel: c_int, object: c_int) -> c_int;
+        fn get_object_centroid_x(channel: c_int, object: c_int) -> c_int;
+        fn get_object_centroid_row(channel: c_int, object: c_int) -> c_int;
+        fn get_object_centroid_y(channel: c_int, object: c_int) -> c_int;
+        fn get_object_center_column(channel: c_int, object: c_int) -> c_int;
+        fn get_object_center_x(channel: c_int, object: c_int) -> c_int;
+        fn get_object_center_row(channel: c_int, object: c_int) -> c_int;
+        fn get_object_center_y(channel: c_int, object: c_int) -> c_int;
         fn camera_close();
-        fn get_camera_element_size() -> u32;
+        fn get_camera_element_size() -> c_uint;
         fn calibrate_compass();
-        fn set_compass_params(
-            mean_x: f32,
-            mean_y: f32,
-            mean_z: f32,
-            w1: f32,
-            w2: f32,
-            div_e1: f32,
-            div_e2: f32,
-        );
         fn get_compass_angle() -> f32;
         fn console_clear();
-        fn create_connect() -> i32;
-        fn create_connect_once() -> i32;
+        fn create_connect() -> c_int;
+        fn create_connect_once() -> c_int;
         fn create_disconnect();
         fn create_start();
         fn create_passive();
@@ -212,216 +204,185 @@ fn add_bindings(env: &EnvironmentRef) {
         fn create_full();
         fn create_spot();
         fn create_cover();
-        fn create_demo(d: i32);
+        fn create_demo(d: c_int);
         fn create_cover_dock();
-        fn get_create_mode() -> i32;
-        fn get_create_lbump() -> i32;
-        fn get_create_rbump() -> i32;
-        fn get_create_lwdrop() -> i32;
-        fn get_create_cwdrop() -> i32;
-        fn get_create_rwdrop() -> i32;
-        fn get_create_wall() -> i32;
-        fn get_create_lcliff() -> i32;
-        fn get_create_lfcliff() -> i32;
-        fn get_create_rfcliff() -> i32;
-        fn get_create_rcliff() -> i32;
-        fn get_create_llightbump() -> i32;
-        fn get_create_lflightbump() -> i32;
-        fn get_create_lclightbump() -> i32;
-        fn get_create_rclightbump() -> i32;
-        fn get_create_rflightbump() -> i32;
-        fn get_create_rlightbump() -> i32;
-        fn get_create_llightbump_amt() -> i32;
-        fn get_create_rlightbump_amt() -> i32;
-        fn get_create_lflightbump_amt() -> i32;
-        fn get_create_lclightbump_amt() -> i32;
-        fn get_create_rclightbump_amt() -> i32;
-        fn get_create_rflightbump_amt() -> i32;
-        fn get_create_vwall() -> i32;
-        fn get_create_overcurrents() -> i32;
-        fn get_create_infrared() -> i32;
-        fn get_create_advance_button() -> i32;
-        fn get_create_play_button() -> i32;
-        fn get_create_normalized_angle() -> i32;
-        fn set_create_normalized_angle(angle: i32);
-        fn get_create_total_angle() -> i32;
-        fn set_create_total_angle(angle: i32);
-        fn get_create_distance() -> i32;
-        fn set_create_distance(dist: i32);
-        fn get_create_battery_charging_state() -> i32;
-        fn get_create_battery_voltage() -> i32;
-        fn get_create_battery_current() -> i32;
-        fn get_create_battery_temp() -> i32;
-        fn get_create_battery_charge() -> i32;
-        fn get_create_battery_capacity() -> i32;
-        fn get_create_wall_amt() -> i32;
-        fn get_create_lcliff_amt() -> i32;
-        fn get_create_lfcliff_amt() -> i32;
-        fn get_create_rfcliff_amt() -> i32;
-        fn get_create_rcliff_amt() -> i32;
-        fn get_create_bay_DI() -> i32;
-        fn get_create_bay_AI() -> i32;
-        fn get_create_song_number() -> i32;
-        fn get_create_song_playing() -> i32;
-        fn get_create_number_of_stream_packets() -> i32;
-        fn get_create_requested_velocity() -> i32;
-        fn get_create_requested_radius() -> i32;
-        fn get_create_requested_right_velocity() -> i32;
-        fn get_create_requested_left_velocity() -> i32;
+        fn get_create_mode() -> c_int;
+        fn get_create_lbump() -> c_int;
+        fn get_create_rbump() -> c_int;
+        fn get_create_lwdrop() -> c_int;
+        fn get_create_cwdrop() -> c_int;
+        fn get_create_rwdrop() -> c_int;
+        fn get_create_wall() -> c_int;
+        fn get_create_lcliff() -> c_int;
+        fn get_create_lfcliff() -> c_int;
+        fn get_create_rfcliff() -> c_int;
+        fn get_create_rcliff() -> c_int;
+        fn get_create_llightbump() -> c_int;
+        fn get_create_lflightbump() -> c_int;
+        fn get_create_lclightbump() -> c_int;
+        fn get_create_rclightbump() -> c_int;
+        fn get_create_rflightbump() -> c_int;
+        fn get_create_rlightbump() -> c_int;
+        fn get_create_llightbump_amt() -> c_int;
+        fn get_create_rlightbump_amt() -> c_int;
+        fn get_create_lflightbump_amt() -> c_int;
+        fn get_create_lclightbump_amt() -> c_int;
+        fn get_create_rclightbump_amt() -> c_int;
+        fn get_create_rflightbump_amt() -> c_int;
+        fn get_create_vwall() -> c_int;
+        fn get_create_overcurrents() -> c_int;
+        fn get_create_infrared() -> c_int;
+        fn get_create_advance_button() -> c_int;
+        fn get_create_play_button() -> c_int;
+        fn get_create_normalized_angle() -> c_int;
+        fn set_create_normalized_angle(angle: c_int);
+        fn get_create_total_angle() -> c_int;
+        fn set_create_total_angle(angle: c_int);
+        fn get_create_distance() -> c_int;
+        fn set_create_distance(dist: c_int);
+        fn get_create_battery_charging_state() -> c_int;
+        fn get_create_battery_voltage() -> c_int;
+        fn get_create_battery_current() -> c_int;
+        fn get_create_battery_temp() -> c_int;
+        fn get_create_battery_charge() -> c_int;
+        fn get_create_battery_capacity() -> c_int;
+        fn get_create_wall_amt() -> c_int;
+        fn get_create_lcliff_amt() -> c_int;
+        fn get_create_lfcliff_amt() -> c_int;
+        fn get_create_rfcliff_amt() -> c_int;
+        fn get_create_rcliff_amt() -> c_int;
+        fn get_create_song_number() -> c_int;
+        fn get_create_song_playing() -> c_int;
+        fn get_create_number_of_stream_packets() -> c_int;
+        fn get_create_requested_velocity() -> c_int;
+        fn get_create_requested_radius() -> c_int;
+        fn get_create_requested_right_velocity() -> c_int;
+        fn get_create_requested_left_velocity() -> c_int;
         fn create_stop();
-        fn create_drive(speed: i32, radius: i32);
-        fn create_drive_straight(speed: i32);
-        fn create_spin_CW(speed: i32);
-        fn create_spin_CCW(speed: i32);
-        fn create_drive_direct(l_speed: i32, r_speed: i32);
-        fn create_spin_block(speed: i32, angle: i32);
-        fn create_advance_led(on: i32);
-        fn create_play_led(on: i32);
-        fn create_power_led(color: i32, brightness: i32);
-        fn create_digital_output(bits: i32);
-        fn create_pwm_low_side_drivers(pwm2: i32, pwm1: i32, pwm0: i32);
-        fn create_low_side_drivers(pwm2: i32, pwm1: i32, pwm0: i32);
-        fn create_load_song(num: i32);
-        fn create_play_song(num: i32);
-        fn create_write_byte(byte: i8);
+        fn create_drive(speed: c_int, radius: c_int);
+        fn create_drive_straight(speed: c_int);
+        fn create_drive_direct(l_speed: c_int, r_speed: c_int);
+        fn create_spin_block(speed: c_int, angle: c_int);
+        fn create_advance_led(on: c_int);
+        fn create_play_led(on: c_int);
+        fn create_power_led(color: c_int, brightness: c_int);
+        fn create_digital_output(bits: c_int);
+        fn create_pwm_low_side_drivers(pwm2: c_int, pwm1: c_int, pwm0: c_int);
+        fn create_low_side_drivers(pwm2: c_int, pwm1: c_int, pwm0: c_int);
+        fn create_load_song(num: c_int);
+        fn create_play_song(num: c_int);
+        fn create_write_byte(byte: c_char);
         fn create_clear_serial_buffer();
-        fn digital(port: i32) -> i32;
-        fn set_digital_value(port: i32, value: i32);
-        fn get_digital_value(port: i32) -> i32;
-        fn set_digital_output(port: i32, out: i32);
-        fn get_digital_output(port: i32) -> i32;
-        fn get_digital_pullup(port: i32) -> i32;
-        fn set_digital_pullup(port: i32, pullup: i32);
+        fn digital(port: c_int) -> c_int;
+        fn set_digital_value(port: c_int, value: c_int);
+        fn get_digital_value(port: c_int) -> c_int;
+        fn set_digital_output(port: c_int, out: c_int);
+        fn get_digital_output(port: c_int) -> c_int;
+        fn get_digital_pullup(port: c_int) -> c_int;
+        fn set_digital_pullup(port: c_int, pullup: c_int);
         fn display_clear();
-        fn set_auto_publish(on: i32);
+        fn set_auto_publish(on: c_int);
         fn publish();
         fn halt();
         fn freeze_halt();
-        fn graphics_open(width: i32, height: i32) -> i32;
+        fn graphics_open(width: c_int, height: c_int) -> c_int;
         fn graphics_close();
         fn graphics_update();
         fn graphics_clear();
-        fn graphics_fill(r: i32, g: i32, b: i32);
-        fn graphics_pixel(x: i32, y: i32, r: i32, g: i32, b: i32);
-        fn graphics_line(x1: i32, y1: i32, x2: i32, y2: i32, r: i32, g: i32, b: i32);
-        fn graphics_circle(cx: i32, cy: i32, radius: i32, r: i32, g: i32, b: i32);
-        fn graphics_circle_fill(cx: i32, cy: i32, radius: i32, r: i32, g: i32, b: i32);
-        fn graphics_rectangle(x1: i32, y1: i32, x2: i32, y2: i32, r: i32, g: i32, b: i32);
-        fn graphics_rectangle_fill(x1: i32, y1: i32, x2: i32, y2: i32, r: i32, g: i32, b: i32);
+        fn graphics_fill(r: c_int, g: c_int, b: c_int);
+        fn graphics_pixel(x: c_int, y: c_int, r: c_int, g: c_int, b: c_int);
+        fn graphics_line(x1: c_int, y1: c_int, x2: c_int, y2: c_int, r: c_int, g: c_int, b: c_int);
+        fn graphics_circle(cx: c_int, cy: c_int, radius: c_int, r: c_int, g: c_int, b: c_int);
+        fn graphics_circle_fill(cx: c_int, cy: c_int, radius: c_int, r: c_int, g: c_int, b: c_int);
         fn graphics_triangle(
-            x1: i32,
-            y1: i32,
-            x2: i32,
-            y2: i32,
-            x3: i32,
-            y3: i32,
-            r: i32,
-            g: i32,
-            b: i32,
+            x1: c_int,
+            y1: c_int,
+            x2: c_int,
+            y2: c_int,
+            x3: c_int,
+            y3: c_int,
+            r: c_int,
+            g: c_int,
+            b: c_int,
         );
         fn graphics_triangle_fill(
-            x1: i32,
-            y1: i32,
-            x2: i32,
-            y2: i32,
-            x3: i32,
-            y3: i32,
-            r: i32,
-            g: i32,
-            b: i32,
+            x1: c_int,
+            y1: c_int,
+            x2: c_int,
+            y2: c_int,
+            x3: c_int,
+            y3: c_int,
+            r: c_int,
+            g: c_int,
+            b: c_int,
         );
-        fn get_mouse_middle_button() -> i32;
-        fn get_mouse_left_button() -> i32;
-        fn get_mouse_right_button() -> i32;
-        fn graphics_printCharacter(n: i32, x: i32, y: i32, r: i32, g: i32, b: i32, size: f32);
-        fn g_printCharacter(n: i32, x: i32, y: i32, r: i32, g: i32, b: i32, size: f32);
-        fn graphics_printInt(
-            n: i32,
-            min_num_digits: i32,
-            x: i32,
-            y: i32,
-            r: i32,
-            g: i32,
-            b: i32,
-            size: f32,
-        ) -> i32;
-        fn g_printInt(
-            n: i32,
-            min_num_digits: i32,
-            x: i32,
-            y: i32,
-            r: i32,
-            g: i32,
-            b: i32,
-            size: f32,
-        ) -> i32;
-        fn graphics_printFloat(
-            n: f32,
-            num_digits: i32,
-            x: i32,
-            y: i32,
-            r: i32,
-            g: i32,
-            b: i32,
-            size: f32,
-        );
-        fn g_printFloat(n: f32, num_digits: i32, x: i32, y: i32, r: i32, g: i32, b: i32, size: f32);
-        fn gyro_x() -> i16;
-        fn gyro_y() -> i16;
-        fn gyro_z() -> i16;
-        fn gyro_calibrate() -> i32;
+        fn get_mouse_middle_button() -> c_int;
+        fn get_mouse_left_button() -> c_int;
+        fn get_mouse_right_button() -> c_int;
+        fn gyro_x() -> c_short;
+        fn gyro_y() -> c_short;
+        fn gyro_z() -> c_short;
+        fn gyro_calibrate() -> c_int;
         fn ir_read();
         fn ir_write();
-        fn magneto_x() -> i16;
-        fn magneto_y() -> i16;
-        fn magneto_z() -> i16;
-        fn magneto_calibrate() -> i32;
-        fn get_motor_position_counter(motor: i32) -> i32;
-        fn gmpc(motor: i32) -> i32;
-        fn clear_motor_position_counter(motor: i32);
-        fn cmpc(motor: i32);
-        fn move_at_velocity(motor: i32, velocity: i32) -> i32;
-        fn mav(motor: i32, velocity: i32) -> i32;
-        fn move_to_position(motor: i32, speed: i32, goal_pos: i32) -> i32;
-        fn mtp(motor: i32, speed: i32, goal_pos: i32) -> i32;
-        fn move_relative_position(motor: i32, speed: i32, delta_pos: i32) -> i32;
-        fn mrp(motor: i32, speed: i32, delta_pos: i32) -> i32;
-        fn set_pid_gains(motor: i32, p: i16, i: i16, d: i16, pd: i16, id: i16, dd: i16);
-        fn freeze(motor: i32) -> i32;
-        fn get_motor_done(motor: i32) -> i32;
-        fn block_motor_done(motor: i32);
-        fn bmd(motor: i32);
-        fn setpwm(motor: i32, pwm: i32) -> i32;
-        fn getpwm(motor: i32) -> i32;
-        fn fd(motor: i32);
-        fn bk(motor: i32);
-        fn motor(motor: i32, percent: i32);
-        fn baasbennaguui(motor: i32, percent: i32);
-        fn motor_power(motor: i32, percent: i32);
-        fn off(motor: i32);
+        fn magneto_x() -> c_short;
+        fn magneto_y() -> c_short;
+        fn magneto_z() -> c_short;
+        fn magneto_calibrate() -> c_int;
+        fn get_motor_position_counter(motor: c_int) -> c_int;
+        fn gmpc(motor: c_int) -> c_int;
+        fn clear_motor_position_counter(motor: c_int);
+        fn cmpc(motor: c_int);
+        fn move_at_velocity(motor: c_int, velocity: c_int) -> c_int;
+        fn mav(motor: c_int, velocity: c_int) -> c_int;
+        fn move_to_position(motor: c_int, speed: c_int, goal_pos: c_int) -> c_int;
+        fn mtp(motor: c_int, speed: c_int, goal_pos: c_int) -> c_int;
+        fn move_relative_position(motor: c_int, speed: c_int, delta_pos: c_int) -> c_int;
+        fn mrp(motor: c_int, speed: c_int, delta_pos: c_int) -> c_int;
+        fn set_pid_gains(
+            motor: c_int,
+            p: c_short,
+            i: c_short,
+            d: c_short,
+            pd: c_short,
+            id: c_short,
+            dd: c_short,
+        );
+        fn freeze(motor: c_int) -> c_int;
+        fn get_motor_done(motor: c_int) -> c_int;
+        fn block_motor_done(motor: c_int);
+        fn bmd(motor: c_int);
+        fn setpwm(motor: c_int, pwm: c_int) -> c_int;
+        fn getpwm(motor: c_int) -> c_int;
+        fn fd(motor: c_int);
+        fn bk(motor: c_int);
+        fn motor(motor: c_int, percent: c_int);
+        fn baasbennaguui(motor: c_int, percent: c_int);
+        fn motor_power(motor: c_int, percent: c_int);
+        fn off(motor: c_int);
         fn alloff();
         fn ao();
-        fn get_robot_states_sequence_num() -> u64;
-        fn get_robot_update_count() -> u64;
-        fn get_robot_firmware_version() -> u16;
-        fn set_robot_update_delay(us_delay: u32) -> i32;
-        fn get_robot_update_delay() -> u32;
-        fn set_low_volt_threshold(volts: f32) -> i32;
+        fn get_robot_states_sequence_num() -> c_ulong;
+        fn get_robot_update_count() -> c_ulong;
+        fn get_robot_firmware_version() -> c_ushort;
+        fn set_robot_update_delay(us_delay: c_uint) -> c_int;
+        fn get_robot_update_delay() -> c_uint;
+        fn set_low_volt_threshold(volts: f32) -> c_int;
         fn get_low_volt_threshold() -> f32;
-        fn enable_servo(port: i32);
-        fn disable_servo(port: i32);
+        fn enable_servo(port: c_int);
+        fn disable_servo(port: c_int);
         fn enable_servos();
         fn disable_servos();
-        fn set_servo_enabled(port: i32, enabled: i32);
-        fn get_servo_enabled(port: i32) -> i32;
-        fn get_servo_position(port: i32) -> i32;
-        fn set_servo_position(port: i32, position: i32);
-        fn msleep(msecs: i64);
-        fn iitxash(msecs: i64);
-        fn systime() -> u64;
+        fn set_servo_enabled(port: c_int, enabled: c_int);
+        fn get_servo_enabled(port: c_int) -> c_int;
+        fn get_servo_position(port: c_int) -> c_int;
+        fn set_servo_position(port: c_int, position: c_int);
+        fn msleep(msecs: c_long);
+        fn iitxash(msecs: c_long);
+        fn systime() -> c_ulong;
         fn seconds() -> f64;
-        fn wait_for_milliseconds(msecs: i64);
-        fn wait_for_touch(port: i32);
+        fn wait_for_milliseconds(msecs: c_long);
+        fn wait_for_touch(port: c_int);
         fn wait_for_a_button();
         fn wait_for_b_button();
         fn wait_for_c_button();
