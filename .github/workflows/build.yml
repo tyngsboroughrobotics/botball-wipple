@@ -25,6 +25,9 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date -u +'%Y%m%d%H%M%S')"
 
+      - name: Install LLVM and Clang
+        run: sudo apt install llvm clang
+
       - name: Build
         run: |
           cd plugin
