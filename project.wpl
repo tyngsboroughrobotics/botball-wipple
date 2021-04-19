@@ -1,0 +1,5 @@
+main : "src"
+
+dependencies : {
+    libwallaby : plugin (path (format "./plugin/_.wplplugin" host))
+}
