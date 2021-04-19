@@ -4,7 +4,7 @@ set -e
 
 target="armv7-unknown-linux-gnueabihf"
 
-cargo install cross
+rustup target add $target
 
-cross build --target=$target --release
+cargo build --target=$target --release
 cp target/$target/release/libplugin.so $target.wplplugin

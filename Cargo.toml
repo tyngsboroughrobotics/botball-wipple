@@ -7,9 +7,7 @@ edition = "2018"
 crate-type = ["cdylib"]
 
 [dependencies]
-bigdecimal = "0.2.0"
 botball = { git = "https://github.com/tyngsboroughrobotics/botball-rust" }
-paste = "1.0.4"
 wipple = { git = "https://github.com/wipplelang/wipple" }
 wipple_bind = { git = "https://github.com/wipplelang/bind" }
 wipple_plugins = { git = "https://github.com/wipplelang/wipple" }

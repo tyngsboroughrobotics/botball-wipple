@@ -8,6 +8,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date -u +'%Y%m%d%H%M%S')"
+
       - uses: actions/checkout@v2
 
       - uses: actions/cache@v2
@@ -18,15 +22,22 @@ jobs:
             target
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date -u +'%Y%m%d%H%M%S')"
-
       - name: Install LLVM and Clang
-        run: sudo apt install llvm clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "11.0"
+          directory: ${{ runner.temp }}/llvm
+
+      - name: Install cross-compiler tools
+        run: |
+          sudo apt-get install gcc-9-arm-linux-gnueabihf gcc-arm-linux-gnueabihf libc6-dev-i386
 
       - name: Build
         run: ./build.sh
+        env:
+          LIBCLANG_PATH: ${{ runner.temp }}/llvm/lib
+          LLVM_CONFIG_PATH: ${{ runner.temp }}/llvm/bin/llvm-config
+          CARGO_TARGET_ARMV7_UNKNOWN_LINUX_GNUEABIHF_LINKER: /usr/bin/arm-linux-gnueabihf-gcc
 
       - name: Upload binaries
         run: |
