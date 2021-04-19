@@ -1,9 +1,6 @@
 on:
-  workflow_dispatch:
-  push:
-    paths:
-      - .github/**
-      - plugin/**
+  - workflow_dispatch
+  - push
 
 name: Build plugin
 
@@ -29,14 +26,12 @@ jobs:
         run: sudo apt install llvm clang
 
       - name: Build
-        run: |
-          cd plugin
-          ./build.sh
-          cd ..
+        run: ./build.sh
+
       - name: Upload binaries
         run: |
           set -x
           tag_name="0.0.0-dev-${{ steps.date.outputs.date }}"
-          hub release create -a "plugin/armv7-unknown-linux-gnueabihf.wplplugin" -m "$tag_name" "$tag_name"
+          hub release create -a "armv7-unknown-linux-gnueabihf.wplplugin" -m "$tag_name" "$tag_name"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
