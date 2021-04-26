@@ -30,23 +30,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "autocfg"
-version = "1.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cdb031dd78e28731d87d56cc8ffef4a8f36ca26c38fe2de700543e627f8a464a"
-
-[[package]]
-name = "bigdecimal"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cc403c26e6b03005522e6e8053384c4e881dfe5b2bf041c0c2c49be33d64a539"
-dependencies = [
- "num-bigint",
- "num-integer",
- "num-traits",
-]
-
-[[package]]
 name = "bindgen"
 version = "0.53.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -269,36 +252,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "num-bigint"
-version = "0.3.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7d0a3d5e207573f948a9e5376662aa743a2ea13f7c50a554d7af443a73fbfeba"
-dependencies = [
- "autocfg",
- "num-integer",
- "num-traits",
-]
-
-[[package]]
-name = "num-integer"
-version = "0.1.44"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d2cc698a63b549a70bc047073d2949cce27cd1c7b0a4a862d08a8031bc2801db"
-dependencies = [
- "autocfg",
- "num-traits",
-]
-
-[[package]]
-name = "num-traits"
-version = "0.2.14"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9a64b1ec5cda2586e284722486d802acf1f7dbdc623e2bfc57e65ca1cd099290"
-dependencies = [
- "autocfg",
-]
-
-[[package]]
 name = "paste"
 version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -516,9 +469,8 @@ checksum = "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f"
 [[package]]
 name = "wipple"
 version = "0.0.0"
-source = "git+https://github.com/wipplelang/wipple#5c17f68c4b634459b08c1b36eac6d11f29ca6861"
+source = "git+https://github.com/wipplelang/wipple#731dbdb987b0f35e191cb868babe137f1e9aba6b"
 dependencies = [
- "bigdecimal",
  "dynamic",
  "paste",
  "ref_thread_local",
@@ -527,9 +479,8 @@ dependencies = [
 [[package]]
 name = "wipple_bind"
 version = "0.0.0"
-source = "git+https://github.com/wipplelang/bind#abcd477ff85d2bc246c5cdaeb0c37927953c21f0"
+source = "git+https://github.com/wipplelang/bind#3aa45684e5b03e867d7229523932ca275a867211"
 dependencies = [
- "bigdecimal",
  "paste",
  "wipple",
 ]
@@ -537,7 +488,7 @@ dependencies = [
 [[package]]
 name = "wipple_plugin_attribute"
 version = "0.0.0"
-source = "git+https://github.com/wipplelang/wipple#5c17f68c4b634459b08c1b36eac6d11f29ca6861"
+source = "git+https://github.com/wipplelang/wipple#731dbdb987b0f35e191cb868babe137f1e9aba6b"
 dependencies = [
  "proc-macro2 1.0.26",
  "quote 1.0.9",
@@ -547,7 +498,7 @@ dependencies = [
 [[package]]
 name = "wipple_plugins"
 version = "0.0.0"
-source = "git+https://github.com/wipplelang/wipple#5c17f68c4b634459b08c1b36eac6d11f29ca6861"
+source = "git+https://github.com/wipplelang/wipple#731dbdb987b0f35e191cb868babe137f1e9aba6b"
 dependencies = [
  "dlopen",
  "wipple",
