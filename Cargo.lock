@@ -138,32 +138,13 @@ dependencies = [
 ]
 
 [[package]]
-name = "const_format"
-version = "0.2.14"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c75ea7d6aeb2ebd1ee24f7b7e1b23242ef5a56b3a693733b99bfbe5ef31d0306"
-dependencies = [
- "const_format_proc_macros",
-]
-
-[[package]]
-name = "const_format_proc_macros"
-version = "0.2.14"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "29c36c619c422113552db4eb28cddba8faa757e33f758cc3415bd2885977b591"
+name = "derive"
+version = "0.0.0"
+source = "git+https://github.com/wipplelang/dynamic#45630cabc302b806890aec5e7cc94148d9a21ea3"
 dependencies = [
  "proc-macro2 1.0.26",
  "quote 1.0.9",
- "unicode-xid 0.2.1",
-]
-
-[[package]]
-name = "derive"
-version = "0.0.0"
-source = "git+https://github.com/wipplelang/dynamic#10eed49b541912f5e2d281845f5ecca9f0617adf"
-dependencies = [
- "quote 1.0.9",
- "syn 1.0.69",
+ "syn 1.0.70",
 ]
 
 [[package]]
@@ -192,9 +173,8 @@ dependencies = [
 [[package]]
 name = "dynamic"
 version = "0.0.0"
-source = "git+https://github.com/wipplelang/dynamic#10eed49b541912f5e2d281845f5ecca9f0617adf"
+source = "git+https://github.com/wipplelang/dynamic#45630cabc302b806890aec5e7cc94148d9a21ea3"
 dependencies = [
- "const_format",
  "derive",
 ]
 
@@ -209,17 +189,6 @@ dependencies = [
  "log",
  "regex",
  "termcolor",
-]
-
-[[package]]
-name = "getrandom"
-version = "0.2.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c9495705279e7140bf035dde1f6e750c162df8b625267cd52cc44e0b156732c8"
-dependencies = [
- "cfg-if 1.0.0",
- "libc",
- "wasi",
 ]
 
 [[package]]
@@ -260,9 +229,9 @@ checksum = "830d08ce1d1d941e6b30645f1a0eb5643013d835ce3779a5fc208261dbe10f55"
 
 [[package]]
 name = "libc"
-version = "0.2.93"
+version = "0.2.94"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9385f66bf6105b241aa65a61cb923ef20efc665cb9f9bb50ac2f0c4b7f378d41"
+checksum = "18794a8ad5b29321f790b55d93dfba91e125cb1a9edbd4f8e3150acc771c1a5e"
 
 [[package]]
 name = "libloading"
@@ -394,10 +363,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "regex"
-version = "1.4.5"
+name = "ref_thread_local"
+version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "957056ecddbeba1b26965114e191d2e8589ce74db242b6ea25fc4062427a5c19"
+checksum = "13ed77408f669435578692a16ae54efbbc662f9727c85315d9beb319be098d94"
+
+[[package]]
+name = "regex"
+version = "1.4.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2a26af418b574bd56588335b3a3659a65725d4e636eb1016c2f9e3b38c7cc759"
 dependencies = [
  "aho-corasick",
  "memchr",
@@ -441,9 +416,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "1.0.69"
+version = "1.0.70"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "48fe99c6bd8b1cc636890bcc071842de909d902c81ac7dab53ba33c421ab8ffb"
+checksum = "b9505f307c872bab8eb46f77ae357c8eba1fdacead58ee5a850116b1d7f82883"
 dependencies = [
  "proc-macro2 1.0.26",
  "quote 1.0.9",
@@ -487,15 +462,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f7fe0bb3479651439c9112f72b6c505038574c9fbb575ed1bf3b797fa39dd564"
 
 [[package]]
-name = "uuid"
-version = "0.8.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bc5cf98d8186244414c848017f0e2676b3fcb46807f6668a97dfe67359a3c4b7"
-dependencies = [
- "getrandom",
-]
-
-[[package]]
 name = "vec_map"
 version = "0.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -506,12 +472,6 @@ name = "version_check"
 version = "0.9.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5fecdca9a5291cc2b8dcf7dc02453fee791a280f3743cb0905f8822ae463b3fe"
-
-[[package]]
-name = "wasi"
-version = "0.10.2+wasi-snapshot-preview1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fd6fbd9a79829dd1ad0cc20627bf1ed606756a7f77edff7b66b7064f9cb327c6"
 
 [[package]]
 name = "which"
@@ -556,18 +516,18 @@ checksum = "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f"
 [[package]]
 name = "wipple"
 version = "0.0.0"
-source = "git+https://github.com/wipplelang/wipple#7cbfd9259447590e4812d9a25e46cdb2d966629e"
+source = "git+https://github.com/wipplelang/wipple#5c17f68c4b634459b08c1b36eac6d11f29ca6861"
 dependencies = [
  "bigdecimal",
  "dynamic",
  "paste",
- "uuid",
+ "ref_thread_local",
 ]
 
 [[package]]
 name = "wipple_bind"
 version = "0.0.0"
-source = "git+https://github.com/wipplelang/bind#4f46697636b55f9bb8a79cfe2d393a93bfac1128"
+source = "git+https://github.com/wipplelang/bind#abcd477ff85d2bc246c5cdaeb0c37927953c21f0"
 dependencies = [
  "bigdecimal",
  "paste",
@@ -577,17 +537,17 @@ dependencies = [
 [[package]]
 name = "wipple_plugin_attribute"
 version = "0.0.0"
-source = "git+https://github.com/wipplelang/wipple#7cbfd9259447590e4812d9a25e46cdb2d966629e"
+source = "git+https://github.com/wipplelang/wipple#5c17f68c4b634459b08c1b36eac6d11f29ca6861"
 dependencies = [
  "proc-macro2 1.0.26",
  "quote 1.0.9",
- "syn 1.0.69",
+ "syn 1.0.70",
 ]
 
 [[package]]
 name = "wipple_plugins"
 version = "0.0.0"
-source = "git+https://github.com/wipplelang/wipple#7cbfd9259447590e4812d9a25e46cdb2d966629e"
+source = "git+https://github.com/wipplelang/wipple#5c17f68c4b634459b08c1b36eac6d11f29ca6861"
 dependencies = [
  "dlopen",
  "wipple",
