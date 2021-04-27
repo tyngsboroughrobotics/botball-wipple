@@ -469,7 +469,7 @@ checksum = "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f"
 [[package]]
 name = "wipple"
 version = "0.0.0"
-source = "git+https://github.com/wipplelang/wipple#44ab77bf62f6bb4164e99fb5e3ed35aa2f249588"
+source = "git+https://github.com/wipplelang/wipple#bbcec9f3e070e4af216cb9035809d42ab24c1f5a"
 dependencies = [
  "dynamic",
  "paste",
@@ -487,7 +487,7 @@ dependencies = [
 [[package]]
 name = "wipple_plugin_attribute"
 version = "0.0.0"
-source = "git+https://github.com/wipplelang/wipple#44ab77bf62f6bb4164e99fb5e3ed35aa2f249588"
+source = "git+https://github.com/wipplelang/wipple#bbcec9f3e070e4af216cb9035809d42ab24c1f5a"
 dependencies = [
  "proc-macro2 1.0.26",
  "quote 1.0.9",
@@ -497,7 +497,7 @@ dependencies = [
 [[package]]
 name = "wipple_plugins"
 version = "0.0.0"
-source = "git+https://github.com/wipplelang/wipple#44ab77bf62f6bb4164e99fb5e3ed35aa2f249588"
+source = "git+https://github.com/wipplelang/wipple#bbcec9f3e070e4af216cb9035809d42ab24c1f5a"
 dependencies = [
  "dlopen",
  "wipple",
