@@ -1,1 +1,1 @@
-load-plugin! "./libwallaby.wplplugin"
+plugin! "./libwallaby.wplplugin"
