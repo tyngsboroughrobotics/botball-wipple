@@ -9,5 +9,6 @@ crate-type = ["cdylib"]
 [dependencies]
 botball = { git = "https://github.com/tyngsboroughrobotics/botball-rust" }
 wipple = { git = "https://github.com/wipplelang/wipple" }
-wipple_bind = { git = "https://github.com/wipplelang/bind" }
+wipple_bind = { git = "https://github.com/wipplelang/wipple" }
 wipple_plugins = { git = "https://github.com/wipplelang/wipple" }
+wipple_stdlib = { git = "https://github.com/wipplelang/wipple" }

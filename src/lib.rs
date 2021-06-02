@@ -3,10 +3,11 @@ use std::os::raw::*;
 use wipple::*;
 use wipple_bind::*;
 use wipple_plugins::wipple_plugin;
+use wipple_stdlib::*;
 
 #[wipple_plugin]
-pub fn plugin(env: &EnvironmentRef, _stack: &Stack) -> Result {
-    define_bindings!(env.borrow_mut(), {
+pub fn plugin(env: &Env, stack: &Stack) -> Result<Value> {
+    define_bindings!(env, stack, {
         fn accel_x() -> c_short;
         fn accel_y() -> c_short;
         fn accel_z() -> c_short;
@@ -284,7 +285,7 @@ pub fn plugin(env: &EnvironmentRef, _stack: &Stack) -> Result {
         fn wait_for_y_button_clicked();
         fn wait_for_z_button_clicked();
         fn wait_for_side_button_clicked();
-    });
+    })?;
 
     Ok(Value::empty())
 }
